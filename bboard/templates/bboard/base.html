@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for i in bb %}
+        <h2>{{ i.title }}</h2>
+        <p>{{ i.description }}</p>
+        <p>{{ i.price }}</p>
+        <p><strong>{{ i.kind }}</strong></p>
+        <p>------------------------</p>
+        <br>
+    {% endfor %}
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Поиск по</p>
+        <select name="field">
+            {% for k, i in fields %}
+                <option value="{{ k }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name="value">
+        <input type="submit" value="Подтвердить">
+    </form>
+
+
+</body>
+</html>
