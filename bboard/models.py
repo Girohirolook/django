@@ -12,8 +12,16 @@ class Bb(models.Model):
         ('Обменяю', 'Обменяю'),
     )
     kind = models.CharField(max_length=50, choices=KINDS, blank=True, verbose_name='Тип')
+    rubric = models.ForeignKey('Rubric', on_delete=models.PROTECT, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Объявление'
         verbose_name_plural = 'Объявления'
         ordering = ['-published']
+
+
+class Rubric(models.Model):
+    rubric = models.CharField(max_length=50, verbose_name='Рубрика')
+
+    def __str__(self):
+        return self.rubric
