@@ -12,7 +12,7 @@ class Bb(models.Model):
         ('Обменяю', 'Обменяю'),
     )
     kind = models.CharField(max_length=50, choices=KINDS, blank=True, verbose_name='Тип')
-    rubric = models.ForeignKey('Rubric', on_delete=models.PROTECT, blank=True, null=True)
+    rubric = models.ForeignKey('Rubric', on_delete=models.PROTECT, blank=True, null=True, verbose_name='Рубрика')
 
     class Meta:
         verbose_name = 'Объявление'
